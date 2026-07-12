@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schwalbe Big Betty - Specifikace</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* Light gray background */
+            color: #1f2937; /* Dark gray text */
+        }
+        .easter-egg-container {
+            display: none; /* Hidden by default */
+        }
+        .show-egg {
+            display: block; /* Show when triggered */
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex items-center justify-center p-4">
+
+    <div class="max-w-md w-full bg-white rounded-2xl shadow-xl overflow-hidden">
+        
+        <!-- Header Section -->
+        <div class="bg-gray-900 p-6 text-white text-center">
+            <h1 class="text-3xl font-extrabold tracking-tight">Schwalbe Big Betty</h1>
+            <p class="text-gray-300 mt-2 font-medium">27.5x2.40" | BikePark Edition</p>
+        </div>
+
+        <!-- Specs Section -->
+        <div class="p-6">
+            <p class="text-center font-semibold text-gray-700 mb-6 italic">
+                "Připraveno na ty nejtvrdší sjezdy a bike parky."
+            </p>
+
+            <h2 class="text-xl font-bold border-b-2 border-gray-900 pb-2 mb-4">Technické specifikace</h2>
+            
+            <ul class="space-y-3 text-sm">
+                <li class="flex justify-between border-b border-gray-100 pb-1">
+                    <span class="font-semibold text-gray-600">Výrobce:</span>
+                    <span>Schwalbe</span>
+                </li>
+                <li class="flex justify-between border-b border-gray-100 pb-1">
+                    <span class="font-semibold text-gray-600">Model:</span>
+                    <span>Big Betty (HS 608)</span>
+                </li>
+                <li class="flex justify-between border-b border-gray-100 pb-1">
+                    <span class="font-semibold text-gray-600">Rozměr:</span>
+                    <span>27.5 x 2.40" (ETRTO 62-584)</span>
+                </li>
+                 <li class="flex justify-between border-b border-gray-100 pb-1">
+                    <span class="font-semibold text-gray-600">Určení:</span>
+                    <span>Downhill, Enduro, Bike Park</span>
+                </li>
+                <li class="flex justify-between border-b border-gray-100 pb-1">
+                    <span class="font-semibold text-gray-600">Konstrukce:</span>
+                    <span>Drátová patka (neskládací)</span>
+                </li>
+                <li class="flex justify-between border-b border-gray-100 pb-1">
+                    <span class="font-semibold text-gray-600">Směs:</span>
+                    <span>Addix Performance</span>
+                </li>
+                 <li class="flex justify-between border-b border-gray-100 pb-1">
+                    <span class="font-semibold text-gray-600">Provedení:</span>
+                    <span>BikePark</span>
+                </li>
+                 <li class="flex justify-between border-b border-gray-100 pb-1">
+                    <span class="font-semibold text-gray-600">Max. tlak:</span>
+                    <span>3.5 Bar (50 PSI)</span>
+                </li>
+                 <li class="flex justify-between border-b border-gray-100 pb-1">
+                    <span class="font-semibold text-gray-600">Hmotnost:</span>
+                    <span>cca 1510 g</span>
+                </li>
+            </ul>
+
+            <!-- Key Features -->
+            <div class="mt-6">
+                <h3 class="font-bold text-gray-900 mb-2">Hlavní výhody:</h3>
+                <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                    Extrémně stabilní stranové bloky pro jistotu v zatáčkách, dlouhé hrany pro brutální brzdnou trakci a otevřený profil zajišťující výborné samočištění od bláta. Verze BikePark zaručuje extrémní odolnost a dlouhou životnost i při tom nejdrsnějším zacházení.
+                </p>
+                <p class="text-sm font-semibold text-center italic text-gray-800">
+                    Jasná volba pro dny, kdy to pošleš dolů na plnej plyn.
+                </p>
+            </div>
+            
+            <!-- Interactive Button for the Easter Egg -->
+            <div class="mt-8 text-center">
+                 <button id="revealBtn" class="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
+                    Odhalit speciální garanci
+                </button>
+            </div>
+
+            <!-- The Hidden Message -->
+            <div id="secretMessage" class="easter-egg-container mt-6 p-4 bg-yellow-100 border-l-4 border-yellow-500 rounded-r-lg">
+                <p class="text-sm text-yellow-800 font-medium">
+                    <strong class="font-bold uppercase tracking-wider text-yellow-900">Garance:</strong> <br>
+                    Garantujeme, že s tímhle pláštěm budeš v bikeparku rychlejší. Pokud ne, asi to není pláštěm.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('revealBtn');
+            const msg = document.getElementById('secretMessage');
+
+            btn.addEventListener('click', () => {
+                // Toggle the hidden message
+                msg.classList.toggle('show-egg');
+                
+                // Change button text based on state
+                if (msg.classList.contains('show-egg')) {
+                    btn.textContent = 'Skrýt garanci';
+                    btn.classList.replace('bg-gray-900', 'bg-gray-500');
+                    btn.classList.replace('hover:bg-gray-700', 'hover:bg-gray-400');
+                } else {
+                    btn.textContent = 'Odhalit speciální garanci';
+                    btn.classList.replace('bg-gray-500', 'bg-gray-900');
+                    btn.classList.replace('hover:bg-gray-400', 'hover:bg-gray-700');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
